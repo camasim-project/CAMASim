@@ -5,9 +5,7 @@ CAMASim is a comprehensive simulation framework for evaluating content-addressab
 application **accuracy** with hardware constraints and **hardware performance**.
 We provide a Easy-to-use, Modular and Extendible package of simulating CAM-based accelerators. It comes with function simulator and performance evaluator which can be used to easily build custom search schemes. You can use it with any CAM-compatible applications with cam.write() and cam.query().
 
-If you want to learn more info about the simulator, please refer to the following manuscript:
-
-- Mengyuan Li. (2024). CAMASim: A Comprehensive Simulation Framework for Content-Addressable Memory based Accelerators. [link](https://arxiv.org/abs/2403.03442)
+If you want to learn more info about the simulator, please refer to the following manuscript [link](https://arxiv.org/abs/2403.03442)
 
 ## Quick Start
 ### Get the tool from GitHub
@@ -70,16 +68,12 @@ If you find this code useful in your work, please cite it using the following Bi
 ```
 @misc{li2024CAMASim,
       title={CAMASim: A Comprehensive Simulation Framework for Content-Addressable Memory based Accelerators}, 
-      author={Mengyuan Li and Shiyi Liu and Mohammad Mehdi Sharifi and X. Sharon Hu},
+      author={M. Li and S. Liu and M.  Sharifi and X. Hu},
       year={2024},
       eprint={2403.03442},
       archivePrefix={arXiv}
 }
 ```
-
-## Contact
-If you have suggestions or questions on the work, please contact
-[Mengyuan Li](https://menggg22.github.io) (mli22@nd.edu), University of Notre Dame or [Shiyi Liu](andyliu.pub@outlook.com).
 
 
 ## Further info on EVACAM Integration
