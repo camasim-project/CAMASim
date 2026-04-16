@@ -10,7 +10,7 @@ If you want to learn more info about the simulator, please refer to the followin
 ## Quick Start
 ### Get the tool from GitHub
 ```
-git clone https://github.com/menggg22/CAMASim.git
+git clone https://github.com/camasim-project/CAMASim.git
 ```
 ### Dependencies
 The dependencies required for CAMASim are listed in `pyproject.toml`. We use [uv](https://docs.astral.sh/uv/) to manage these dependencies. You can install them by running:
