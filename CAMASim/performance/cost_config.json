@@ -1,10 +1,10 @@
 {
     "peripheral_cost": {
-        "adder": {"latency": 244, "energy": 1.33E-15}, 
-        "register": {"latency": 488, "energy": 4.5E-15},
-        "comparator": {"latency": 244, "energy": 4.52E-16 },
-        "decoder": {"latency": 244, "energy": 2.898E-14 },
-        "encoder": {"latency": 244, "energy": 2.898E-14}
+        "adder": {"latency": 244, "energy": 1.33E-15, "area":0}, 
+        "register": {"latency": 488, "energy": 4.5E-15, "area":0},
+        "comparator": {"latency": 244, "energy": 4.52E-16 , "area":0},
+        "decoder": {"latency": 244, "energy": 2.898E-14 , "area":0},
+        "encoder": {"latency": 244, "energy": 2.898E-14, "area": 0}
     },
     "array_cost": {
         "TCAM_64": {
@@ -31,6 +31,18 @@
             "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
             "write": {"latency": 20000, "energy": 4.63E-11}
         },
+        "MCAM3b_4": {
+            "subarray": {"latency": 3500, "energy": 1.84E-12},
+            "interconnect": {"latency": 175, "energy": 2.25E-13},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12},
+            "write": {"latency": 20000, "energy": 2.89E-11}
+        },
+        "casa": {
+            "subarray": {"latency": 3500, "energy": 1.84E-12, "area": 0.002006222222},
+            "interconnect": {"latency": 175, "energy": 2.25E-13, "area": 0},
+            "peripheral": {"latency": 1466.666667, "energy": 1.60E-12, "area": 0},
+            "write": {"latency": 20000, "energy": 2.89E-11, "area": 0}
+        },        
         "MCAM3b_64": {
             "subarray": {"latency": 3500, "energy": 1.84E-12},
             "interconnect": {"latency": 175, "energy": 2.25E-13},

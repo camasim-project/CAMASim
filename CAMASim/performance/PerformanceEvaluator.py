@@ -1,6 +1,7 @@
 from CAMASim.performance.cost import get_component_cost, get_EVACAM_cost
 from CAMASim.performance.energy import EnergyEval
 from CAMASim.performance.latency import LatencyEval
+from CAMASim.performance.area import AreaEval
 
 
 class PerformanceEvaluator:
@@ -50,6 +51,19 @@ class PerformanceEvaluator:
             self.bank_peripherals,
         )
 
+        self.area_eval = AreaEval(
+            self.arch_config,
+            self.array_config,
+            self.array_cost,
+            self.peripheral_cost,
+            self.num_array,
+            self.num_mat,
+            self.num_bank,
+            self.array_peripherals,
+            self.mat_peripherals,
+            self.bank_peripherals,
+        )  
+
     def write(self, data):
         """
         Calculate the latency and energy consumption for a write operation.
@@ -84,6 +98,8 @@ class PerformanceEvaluator:
 
         latency = self.latency_eval.calculate_query_latency()
         energy = self.energy_eval.calculate_query_energy()
+        self.area_eval.calculate_query_area()
+
         return latency, energy
 
     def extract_arch_arrays(self):
@@ -95,7 +111,7 @@ class PerformanceEvaluator:
         self.num_array = self.cam_arch["array"]["size"]
         self.num_mat = self.cam_arch["mat"]["size"]
         self.num_bank = self.cam_arch["bank"]["size"]
-
+        print("ola", self.cam_arch)
         if self.array_config.get("useEVACAMCost", False):
             self.array_cost = get_EVACAM_cost(self.array_config, self.cell_config)
             print('Extracting circuit cost from EvaCAM \n')

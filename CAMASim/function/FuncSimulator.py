@@ -5,7 +5,7 @@ from CAMASim.function.search import CAMSearch
 from CAMASim.function.writeNoise import writeNoise
 
 
-class FunctionSimulator:
+class FuncSimulator:
     def __init__(self, array_config, query_config, cell_config, noise_config):
         """
         Initializes the FunctionSimulator class with configuration settings.

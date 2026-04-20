@@ -1,0 +1,46 @@
+query:
+  FuncSim: 1
+  PerfEval: false
+  bit: 8
+  distance: hamming
+  parameter: 1 #number of neighbors or threshold value
+  searchScheme: knn
+
+
+arch:
+  ArraysPerMat: 4
+  MatsPerBank: 4
+  Merge: exact # Not used
+  SubarraysPerArray: 2
+
+
+array:
+  bit: 3
+  cell: Numerical # Not used
+  col: 1024
+  row: 64
+  sensing: best
+  sensingLimit: 0
+  useEVACAMCost: false
+
+
+cell:
+  design: 6T2M
+  device: Numerical
+  maxConductance: 150
+  minConductance: 0
+  representation: voltage # not used
+  type: MCAM
+  writeNoise:
+    cellDesign: 6T2M
+
+    device: Numerical
+    maxConductance: 150
+    minConductance: 0
+
+    hasWriteNoise: false 
+    noiseType:
+    - variation
+    variation:
+      stdDev: 0
+      type: gaussian

@@ -31,7 +31,7 @@ class AreaEval:
         Calculate the area consumption for a query operation.
 
         Returns:
-            float: Total query area (in um^2).
+            float: Total query area (in mm^2).
 
         This method calculates the total area required for a query operation, including array, interconnect, and peripheral area.
         """
@@ -41,14 +41,15 @@ class AreaEval:
                 + self.array_cost["subarray"]["area"]
             )
             * self.arch_config["SubarraysPerArray"]
-            * min(self.arch_config["ArraysPerMat"], self.num_array)
-            * min(self.arch_config["MatsPerBank"], self.num_mat)
+            * max(self.arch_config["ArraysPerMat"], self.num_array)
+            * max(self.arch_config["MatsPerBank"], self.num_mat)
             * self.num_bank
         )
+
         array_area += (
             (self.array_cost["peripheral"]["area"])
-            * min(self.arch_config["ArraysPerMat"], self.num_array)
-            * min(self.arch_config["MatsPerBank"], self.num_mat)
+            * max(self.arch_config["ArraysPerMat"], self.num_array)
+            * max(self.arch_config["MatsPerBank"], self.num_mat)
             * self.num_bank
         )
 
@@ -67,11 +68,10 @@ class AreaEval:
         icnt_area = 0.1 * total_area
         total_area += icnt_area
 
-        print("Query area Breakdown:")
-        print(f" - array area: {array_area}J")
-        print(f" - peripheral area: {array_peripheral_area + mat_peripheral_area + bank_peripheral_area}J")
-        # print(f" - peripheral area: {array_peripheral_area}J")
-        print(f" - interconnect area: {icnt_area}J \n")
+        print("Area Breakdown:")
+        print(f" - array area: {array_area} mm2")
+        print(f" - peripheral area: {array_peripheral_area + mat_peripheral_area + bank_peripheral_area}mm2")
+        # print(f" - interconnect area: {icnt_area}mm2 \n")
         return total_area
 
     def calculate_write_area(self):
@@ -79,7 +79,7 @@ class AreaEval:
         Calculate the area  for a write operation.
 
         Returns:
-            float: Total write area  (in um^2).
+            float: Total write area  (in mm^2).
 
         This method calculates the total area required for a write operation, including array, interconnect, and peripheral area.
         """
@@ -114,7 +114,7 @@ class AreaEval:
             peripherals (dict): Dictionary of peripherals with their parameters.
 
         Returns:
-            float: Total area of peripherals (in um^2).
+            float: Total area of peripherals (in mm^2).
 
         This method estimates the total area of peripherals based on the given peripherals and their parameters.
         """
